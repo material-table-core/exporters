@@ -1,5 +1,5 @@
-import ExportPdf from './pdf/pdf';
-import ExportCsv from './csv/csv';
+import ExportPdf from './pdf';
+import ExportCsv from './csv';
 
 export default {
   ExportPdf,
