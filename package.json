@@ -5,7 +5,7 @@
   },
   "version": "1.0.0",
   "description": "Helper export methods for @material-table/core",
-  "main": "exporters.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:root && npm run build:children",
