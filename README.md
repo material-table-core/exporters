@@ -1,2 +1,2 @@
 # exporters
-Default export methods for @material-table/core
+Default (helper) export methods for @material-table/core

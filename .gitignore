@@ -1,3 +1,11 @@
+/csv
+/pdf
+/pdf.js
+/csv.js
+# We want the built index to reside at root, all source code is in src
+/index.js
+.DS_Store
+
 # Logs
 logs
 *.log

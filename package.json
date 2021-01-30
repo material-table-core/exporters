@@ -1,0 +1,49 @@
+{
+  "name": "@material-table/exporters",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.0",
+  "description": "Helper export methods for @material-table/core",
+  "main": "exporters.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:root && npm run build:children",
+    "build:children": "./node_modules/.bin/babel src --ignore index.js -d ./",
+    "build:root": "./node_modules/.bin/babel src/index.js -d ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/material-table-core/exporters.git"
+  },
+  "types": "index.d.ts",
+  "babel": {
+    "extends": "./babel.config.js"
+  },
+  "keywords": [
+    "@material-table/core",
+    "material-table",
+    "material-ui",
+    "react"
+  ],
+  "author": "material-table-core contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/material-table-core/exporters/issues"
+  },
+  "homepage": "https://github.com/material-table-core/exporters#readme",
+  "dependencies": {
+    "filefy": "^0.1.10",
+    "jspdf": "^2.2.0",
+    "jspdf-autotable": "^3.5.13"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10"
+  }
+}
