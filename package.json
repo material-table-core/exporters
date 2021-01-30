@@ -16,7 +16,12 @@
     "type": "git",
     "url": "git+https://github.com/material-table-core/exporters.git"
   },
-  "types": "index.d.ts",
+  "files": [
+    "csv",
+    "pdf",
+    "types"
+  ],
+  "types": "types/index.d.ts",
   "babel": {
     "extends": "./babel.config.js"
   },
