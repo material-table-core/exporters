@@ -16,3 +16,18 @@ yarn add @material-table/exporters
 
 - `ExportCsv`: `import ExportCsv from '@material-table/exporters/csv';`
 - `ExportPdf`: `import ExportPdf from '@material-table/exporters/pdf';`
+
+## Contributing
+
+### Project Commands 
+
+| Command | Description |
+| --- | --- |
+| `npm run build:root` | builds src/index.js |
+| `npm run build:children` | builds everything in `src` while specifically ignoring `src/index.js` |
+
+### Publish NPM Package
+
+- Run `npm version patch -m "Release x.x.x"`
+  - This example targets "patch"
+  - If the message (`-m "..."`) starts with `Release` we have a GitHub Action that will automatically attempt to publish
