@@ -2,7 +2,7 @@
 
 À la carte exporters for `@material-table/core`
 
-## Installation
+# Installation
 
 ```
 // npm
@@ -12,12 +12,12 @@ npm i @material-table/exporters
 yarn add @material-table/exporters
 ```
 
-## Supported Formats
+# Supported Formats
 
 - `ExportCsv`: `import ExportCsv from '@material-table/exporters/csv';`
 - `ExportPdf`: `import ExportPdf from '@material-table/exporters/pdf';`
 
-## Contributing
+# Contributing
 
 ### Project Commands 
 
