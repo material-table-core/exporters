@@ -14,6 +14,6 @@ export default function ExportCsv(
       .addRows(Array.from(data))
       .exportFile();
   } catch (err) {
-    console.err(`err in ExportCsv : ${err}`);
+    console.error(`error in ExportCsv : ${err}`);
   }
 }
