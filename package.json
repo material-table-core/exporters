@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Helper export methods for @material-table/core",
   "main": "index.js",
   "scripts": {
