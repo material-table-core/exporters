@@ -21,13 +21,16 @@ describe("Tests the csv export", () => {
     expect(blobFunction.mock.calls[2][1]).toBe("data.csv");
   });
   it("fills the data", async () => {
-    ExportCsv([{ title: "name" }], [{ name: "Dominik" }, { name: "Tim" }]);
+    ExportCsv(
+      [{ title: "name", field: "name" }],
+      [{ name: "Dominik" }, { name: "Tim" }]
+    );
     const blob = blobFunction.mock.calls[0][0];
     const blobContent = await readBlob(blob);
     expect(blobFunction.mock.calls[0][1]).toBe("data.csv");
     expect(blobContent).toBe('"name"\r\n"Dominik"\r\n"Tim"');
   });
-  it.only("fills complex data", async () => {
+  it("fills complex data", async () => {
     ExportCsv(
       [
         { title: "Name", field: "name" },
@@ -46,7 +49,6 @@ describe("Tests the csv export", () => {
     );
     const blob = blobFunction.mock.calls[0][0];
     const blobContent = await readBlob(blob);
-    console.log(blobContent);
     expect(blobContent).toBe(
       '"Name","Age","First Name"\r\n"Engel",27,"Dominik"\r\n"X",-20,"Tim"'
     );
@@ -70,12 +72,11 @@ describe("Tests the csv export", () => {
     );
     const blob = blobFunction.mock.calls[0][0];
     const blobContent = await readBlob(blob);
-    console.log(blobContent);
     expect(blobContent).toBe(
       '"Name","Age","First Name"\r\n"Engel",27,"Dominik"\r\n"X",-20,"Tim"'
     );
   });
-  it.only("uses the exportTransformer", async () => {
+  it("uses the exportTransformer", async () => {
     ExportCsv(
       [
         { title: "Name", field: "name" },
@@ -100,6 +101,35 @@ describe("Tests the csv export", () => {
     const blobContent = await readBlob(blob);
     expect(blobContent).toBe(
       '"Name","Age","First Name"\r\n"Engel","This should not be displayed","Dominik"\r\n"X","No hidden","Tim"'
+    );
+  });
+  it("uses different delimiters", async () => {
+    ExportCsv(
+      [
+        { title: "Name", field: "name" },
+        {
+          title: "Age",
+          field: "age",
+          exportTransformer: (row) => row.hidden || "No hidden",
+        },
+        { title: "First Name", field: "firstName" },
+      ],
+      [
+        {
+          name: "Engel",
+          firstName: "Dominik",
+          age: 27,
+          hidden: "This should not be displayed",
+        },
+        { firstName: "Tim", name: "X", age: -20 },
+      ],
+      "delimiter_test",
+      ";"
+    );
+    const blob = blobFunction.mock.calls[0][0];
+    const blobContent = await readBlob(blob);
+    expect(blobContent).toBe(
+      '"Name";"Age";"First Name"\r\n"Engel";"This should not be displayed";"Dominik"\r\n"X";"No hidden";"Tim"'
     );
   });
 });
