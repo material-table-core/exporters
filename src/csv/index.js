@@ -20,7 +20,6 @@ export default function ExportCsv(
         );
       }
     }
-    console.log(finalData);
     const builder = new CsvBuilder(filename + ".csv");
     builder
       .setDelimeter(delimiter)
