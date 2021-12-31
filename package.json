@@ -7,7 +7,7 @@
   "description": "Helper export methods for @material-table/core",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "./node_modules/.bin/jest",
     "build": "npm run build:root && npm run build:children",
     "build:children": "./node_modules/.bin/babel src --ignore index.js -d ./",
     "build:root": "./node_modules/.bin/babel src/index.js -d ./"
