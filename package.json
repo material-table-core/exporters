@@ -7,7 +7,7 @@
   "description": "Helper export methods for @material-table/core",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/jest",
     "build": "npm run build:root && npm run build:children",
     "build:children": "./node_modules/.bin/babel src --ignore index.js -d ./",
     "build:root": "./node_modules/.bin/babel src/index.js -d ./"
@@ -39,6 +39,7 @@
   "homepage": "https://github.com/material-table-core/exporters#readme",
   "dependencies": {
     "filefy": "^0.1.10",
+    "jest-environment-jsdom": "^27.4.4",
     "jspdf": "^2.2.0",
     "jspdf-autotable": "^3.5.13"
   },
@@ -49,6 +50,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10"
+    "@babel/preset-react": "^7.12.10",
+    "jest": "^27.4.5"
   }
 }
