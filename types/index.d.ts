@@ -12,7 +12,7 @@ export function ExportCsv<T>(
   filename: string,
   delimeter?: string
 ): void;
-export function ExportPdf(
+export function ExportPdf<T>(
   columns: Array<IColum<T>>,
   data: Array<T>,
   filename: string
