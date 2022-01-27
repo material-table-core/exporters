@@ -1,16 +1,20 @@
-import 'jspdf-autotable';
+import "jspdf-autotable";
 
-export default function ExportPdf(columns, data = [], filename = 'data') {
+export default function ExportPdf(columns, data = [], filename = "data") {
   try {
-    const JSpdf = typeof window !== 'undefined' ? require('jspdf').jsPDF : null;
+    const JSpdf = typeof window !== "undefined" ? require("jspdf").jsPDF : null;
 
     let finalData = data;
     // Grab first item for data array, make sure it is also an array.
     // If it is an object, 'flatten' it into an array of strings.
     if (data.length && !Array.isArray(data[0])) {
-      if (typeof data[0] === 'object') {
-      // Turn data into an array of string arrays, without the `tableData` prop
-      finalData = data.map(({ tableData, ...row }) => Object.values(row));  
+      if (typeof data[0] === "object") {
+        // Turn data into an array of string arrays, without the `tableData` prop
+        finalData = data.map((row) =>
+          columns.map((col) =>
+            col.exportTransformer ? col.exportTransformer(row) : row[col.field]
+          )
+        );
       }
     }
 
@@ -18,16 +22,16 @@ export default function ExportPdf(columns, data = [], filename = 'data') {
       const content = {
         startY: 50,
         head: [columns.map((col) => col.title)],
-        body: finalData
+        body: finalData,
       };
-      const unit = 'pt';
-      const size = 'A4';
-      const orientation = 'landscape';
+      const unit = "pt";
+      const size = "A4";
+      const orientation = "landscape";
       const doc = new JSpdf(orientation, unit, size);
       doc.setFontSize(15);
       doc.text(filename, 40, 40);
       doc.autoTable(content);
-      doc.save(filename + '.pdf');
+      doc.save(filename + ".pdf");
     }
   } catch (err) {
     console.error(
