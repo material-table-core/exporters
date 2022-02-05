@@ -1,5 +1,7 @@
+import React from "react";
+
 type IColum<T> = {
-  title: string;
+  title?: string | React.ReactElement<any>;
   field: string;
   exportTransformer?: (row: T) => unknown;
   // Allow all other params to be present in column
