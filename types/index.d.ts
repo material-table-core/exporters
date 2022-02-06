@@ -1,20 +1,16 @@
-import React from "react";
+import { Column } from "@material-table/core";
 
-type IColum<T> = {
-  title?: string | React.ReactElement<any>;
-  field: string;
+interface IColum<T extends object> extends Column<T> {
   exportTransformer?: (row: T) => unknown;
-  // Allow all other params to be present in column
-  [x: string]: any;
-};
+}
 
-export function ExportCsv<T>(
+export function ExportCsv<T extends object>(
   columns: Array<IColum<T>>,
   data: Array<T>,
   filename: string,
   delimeter?: string
 ): void;
-export function ExportPdf<T>(
+export function ExportPdf<T extends object>(
   columns: Array<IColum<T>>,
   data: Array<T>,
   filename: string
