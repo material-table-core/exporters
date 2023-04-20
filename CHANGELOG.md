@@ -1,3 +1,9 @@
+#### 1.0.13 (2023-04-20)
+
+##### Other Changes
+
+*  correct spelling of delimiter ([c343cc8e](https://github.com/material-table-core/exporters/commit/c343cc8e4effe317742d04f1a6ff1254ab1798e2))
+
 #### 1.0.12 (2022-02-06)
 
 ##### Documentation Changes
