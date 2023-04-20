@@ -1,3 +1,3 @@
 module.exports = {
-  mode: "production",
+  presets: ["@babel/preset-react"],
 };
