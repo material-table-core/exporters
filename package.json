@@ -20,6 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/material-table-core/exporters.git"
   },
+  "sideEffects": false,
   "files": [
     "csv",
     "pdf",
