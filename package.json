@@ -29,7 +29,7 @@
   ],
   "types": "types/index.d.ts",
   "babel": {
-    "extends": "./babel.config.js"
+    "extends": "./babel.config.cjs"
   },
   "keywords": [
     "@material-table/core",
