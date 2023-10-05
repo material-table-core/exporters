@@ -6,6 +6,10 @@
   "version": "1.2.5",
   "description": "Helper export methods for @material-table/core",
   "main": "./src/index.js",
+  "exports": {
+    "ExportPdf": "./src/pdf/index.js",
+    "ExportCsv": "./src/csv/index.js"
+  },
   "scripts": {
     "test": "jest",
     "build": "npm run build:root && npm run build:children",
