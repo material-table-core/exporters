@@ -1,2 +1,2 @@
-export { default as ExportPdf } from "./pdf/index.js";
-export { default as ExportCsv } from "./csv/index.js";
+export { ExportPdf } from "./pdf/index.js";
+export { ExportCsv } from "./csv/index.js";

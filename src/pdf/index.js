@@ -1,5 +1,5 @@
 import JSpdf from "jspdf";
-export default function ExportPdf(columns, data = [], filename = "data") {
+export function ExportPdf(columns, data = [], filename = "data") {
   try {
     if (JSpdf === null) throw new Error("jspdf-autotable not found");
     let finalData = data; // Grab first item for data array, make sure it is also an array.

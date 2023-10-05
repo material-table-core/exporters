@@ -1,6 +1,6 @@
 import { CsvBuilder } from "filefy";
 
-export default function ExportCsv(
+export function ExportCsv(
   columns,
   data = [],
   filename = "data",
