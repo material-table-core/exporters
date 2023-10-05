@@ -1,4 +1,4 @@
-import ExportCsv from "./index";
+import { ExportCsv } from "./index";
 
 describe("Tests the csv export", () => {
   const blobFunction = jest.fn();
