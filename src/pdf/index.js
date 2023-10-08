@@ -1,4 +1,6 @@
 import JSpdf from "jspdf";
+import "jspdf-autotable";
+
 export function ExportPdf(columns, data = [], filename = "data") {
   try {
     if (JSpdf === null) throw new Error("jspdf-autotable not found");
