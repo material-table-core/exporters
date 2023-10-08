@@ -15,7 +15,7 @@ yarn add @material-table/exporters
 # Supported Formats
 
 - `import { ExportCsv } from "@material-table/exporters/csv";`
-- `import {  ExportPdf } from "@material-table/exporters/pdf";`
+- `import { ExportPdf } from "@material-table/exporters/pdf";`
 
 # Contributing
 
