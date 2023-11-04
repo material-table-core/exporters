@@ -1,7 +1,12 @@
 import JSpdf from "jspdf";
 import "jspdf-autotable";
+import { Column } from "@material-table/core";
 
-export function ExportPdf(columns, data = [], filename = "data") {
+export function ExportPdf<T extends object>(
+  columns: Array<Column<T>>,
+  data: Array<T> = [],
+  filename = "data"
+) {
   try {
     if (JSpdf === null) throw new Error("jspdf-autotable not found");
     let finalData = data; // Grab first item for data array, make sure it is also an array.
@@ -12,9 +17,11 @@ export function ExportPdf(columns, data = [], filename = "data") {
         // Turn data into an array of string arrays, without the `tableData` prop
         finalData = data.map((row) =>
           columns.map((col) =>
-            col.exportTransformer ? col.exportTransformer(row) : row[col.field]
+            col.exportTransformer
+              ? col.exportTransformer(row)
+              : row[col.field as keyof typeof row]
           )
-        );
+        ) as typeof finalData;
       }
     }
 
@@ -26,7 +33,9 @@ export function ExportPdf(columns, data = [], filename = "data") {
     const unit = "pt";
     const size = "A4";
     const orientation = "landscape";
-    const doc = new JSpdf(orientation, unit, size);
+    const doc = new JSpdf(orientation, unit, size) as JSpdf & {
+      autoTable: (content: object) => void;
+    };
     doc.setFontSize(15);
     doc.text(filename, 40, 40);
     doc.autoTable(content);

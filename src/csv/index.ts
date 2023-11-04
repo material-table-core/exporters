@@ -1,8 +1,9 @@
 import { CsvBuilder } from "filefy";
+import { Column } from "@material-table/core";
 
-export function ExportCsv(
-  columns,
-  data = [],
+export function ExportCsv<T extends object>(
+  columns: Array<Column<T>>,
+  data: Array<T> = [],
   filename = "data",
   delimiter = ","
 ) {
@@ -15,16 +16,18 @@ export function ExportCsv(
         // Turn data into an array of string arrays, without the `tableData` prop
         finalData = data.map((row) =>
           columns.map((col) =>
-            col.exportTransformer ? col.exportTransformer(row) : row[col.field]
+            col.exportTransformer
+              ? col.exportTransformer(row)
+              : row[col.field as keyof typeof row]
           )
-        );
+        ) as typeof finalData;
       }
     }
     const builder = new CsvBuilder(filename + ".csv");
     builder
       .setDelimeter(delimiter)
-      .setColumns(columns.map((col) => col.title))
-      .addRows(Array.from(finalData))
+      .setColumns(columns.map((col) => String(col.title)))
+      .addRows(Array.from(finalData) as string[][])
       .exportFile();
   } catch (err) {
     console.error(`error in ExportCsv : ${err}`);
