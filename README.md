@@ -14,18 +14,18 @@ yarn add @material-table/exporters
 
 # Supported Formats
 
-- `import { ExportCsv } from "@material-table/exporters/csv";`
-- `import { ExportPdf } from "@material-table/exporters/pdf";`
+- `import { ExportCsv } from "@material-table/exporters";`
+- `import { ExportPdf } from "@material-table/exporters";`
 
 # Contributing
 
-### Project Commands 
+### Project Commands
 
-| Command | Description |
-| --- | --- |
-| `npm run build:root` | builds src/index.js |
-| `npm run build:children` | builds everything in `src` while specifically ignoring `src/index.js` |
-| `npm run build` | runs the following command: `npm run build:root && npm run build:children` |
+| Command                  | Description                                                                |
+| ------------------------ | -------------------------------------------------------------------------- |
+| `npm run build:root`     | builds src/index.js                                                        |
+| `npm run build:children` | builds everything in `src` while specifically ignoring `src/index.js`      |
+| `npm run build`          | runs the following command: `npm run build:root && npm run build:children` |
 
 ### Publish NPM Package
 
