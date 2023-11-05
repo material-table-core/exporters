@@ -1,3 +1,9 @@
+#### 1.2.12 (2023-11-05)
+
+##### Other Changes
+
+* //github.com/material-table-core/exporters ([13011ac7](https://github.com/material-table-core/exporters/commit/13011ac74f49dbdc89e5e77ee7d2c45b26953253))
+
 #### 1.2.12 (2023-11-04)
 
 #### 1.2.11 (2023-10-08)
