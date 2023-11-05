@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.2.11",
+  "version": "1.2.12",
   "description": "Helper export methods for @material-table/core",
   "files": [
     "dist"
