@@ -42,8 +42,8 @@
   "homepage": "https://github.com/material-table-core/exporters#readme",
   "dependencies": {
     "filefy": "^0.1.11",
-    "jspdf": "^2.5.1",
-    "jspdf-autotable": "^3.6.0"
+    "jspdf": "^4.0.0",
+    "jspdf-autotable": "^5.0.7"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.2",
