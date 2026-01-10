@@ -1,6 +1,7 @@
 import JSpdf from "jspdf";
 import "jspdf-autotable";
 import { Column } from "@material-table/core";
+import { applyPlugin } from "jspdf-autotable";
 
 export function ExportPdf<T extends object>(
   columns: Array<Column<T>>,
@@ -33,6 +34,10 @@ export function ExportPdf<T extends object>(
     const unit = "pt";
     const size = "A4";
     const orientation = "landscape";
+
+    // This is now required in non browser environments to use the old
+    // way of calling autoTable on the jspdf doc instance.
+    applyPlugin(JSpdf)
     const doc = new JSpdf(orientation, unit, size) as JSpdf & {
       autoTable: (content: object) => void;
     };
