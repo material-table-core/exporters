@@ -16,22 +16,23 @@ on:
     branches:
       - main
       - master
-
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
 jobs:
   publish:
     if: startsWith(github.event.head_commit.message, 'Release ')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
-      - name: Publish
-        run: |
-          npm install
-          npm run prepare
-          npm config set @material-table:registry https://registry.npmjs.org/
-          npm publish --ignore-scripts
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install
+      - run: npm run prepare
+      - run: npm publish
   create-release:
     needs: publish
     runs-on: ubuntu-latest
